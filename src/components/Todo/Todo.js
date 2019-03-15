@@ -14,13 +14,12 @@ export default class Todo extends Component {
   }
 
   componentDidMount() {
-    if(!localStorage.tasks) {
-      localStorage.setItem("tasks", JSON.stringify(this.state.items))
-    }
+    // if(!localStorage.tasks) {
+    //   localStorage.setItem("tasks", JSON.stringify(this.state.items))
+    // }
 
-    const localItems = JSON.parse(localStorage.tasks)
-    this.setState({
-      items: localItems
+    localStorage.getItem("tasks") && this.setState({
+      items:  JSON.parse(localStorage.tasks)
     })
   }
 
