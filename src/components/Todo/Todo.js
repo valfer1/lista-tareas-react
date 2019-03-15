@@ -14,11 +14,13 @@ export default class Todo extends Component {
   }
 
   componentDidMount() {
-    
+    this.setState({
+      items: JSON.parse(localStorage.tasks)
+    })
   }
 
   componentDidUpdate() {
-    
+    localStorage.setItem("tasks", JSON.stringify(this.state.items))
   }
 
   handleChange = e => {
